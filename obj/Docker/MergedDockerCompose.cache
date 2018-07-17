@@ -1,0 +1,13 @@
+networks:
+  default:
+    external:
+      name: nat
+services:
+  gitlab:
+    build:
+      context: c:\Users\Peter\source\repos\GitLab\GitLab
+      dockerfile: Dockerfile
+    image: gitlab
+    ports:
+    - 80/tcp
+version: '3.0'

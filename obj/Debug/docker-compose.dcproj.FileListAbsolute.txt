@@ -1,0 +1,1 @@
+c:\Users\Peter\source\repos\GitLab\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
