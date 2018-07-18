@@ -5,7 +5,7 @@ networks:
 services:
   gitlab:
     build:
-      context: c:\Users\Peter\source\repos\GitLab\GitLab
+      context: C:\Users\Peter\source\repos\GitLab\GitLab
       dockerfile: Dockerfile
     image: gitlab
     ports:
