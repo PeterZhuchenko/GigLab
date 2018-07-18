@@ -13,7 +13,6 @@ namespace GitLab.Controllers
     public class GigsController : Controller
     {
         ApplicationDbContext _context;
-        int aaa;
 
         public GigsController()
         {
