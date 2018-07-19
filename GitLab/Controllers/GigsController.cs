@@ -34,6 +34,7 @@ namespace GitLab.Controllers
         [HttpPost]
         public ActionResult Create(GigFormViewModel viewModel)
         {
+
             if (!ModelState.IsValid)
             {
                 viewModel.Genres = _context.Genres.ToList();
