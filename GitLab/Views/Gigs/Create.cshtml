@@ -1,8 +1,8 @@
 ﻿@model GitLab.ViewModels.GigFormViewModel
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "Create";
+    ViewBag.Title = "Create";
 }
 
 <h2>Create</h2>
@@ -30,4 +30,9 @@
     </div>
     <input class="btn btn-success" type="submit" value="Submit">
 }
+@section scripts
+{
+    @Scripts.Render("~/bundles/jqueryval")
+}
+
 

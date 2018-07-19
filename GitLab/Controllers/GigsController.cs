@@ -27,7 +27,7 @@ namespace GitLab.Controllers
                 Genres = _context.Genres.ToList()
             };
 
-            return View();
+            return View(viewModel);
         }
 
         [Authorize]
