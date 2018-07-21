@@ -12,15 +12,15 @@
     {
         <div class="form-group">
             @Html.LabelFor(m => m[i].DateTime)
-            @Html.TextBoxFor(m => m[i].DateTime, new { @class = "form-control" })
+            @Html.DisplayTextFor(m => m[i].DateTime)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m[i].Venue)
-            @Html.TextBoxFor(m => m[i].Venue, new { @class = "form-control" })
+            @Html.DisplayTextFor(m => m[i].Venue)
         </div>
         <div class="form-group">
             @Html.LabelFor(m => m[i].Genre)
-            @Html.TextBoxFor(m => m[i].Genre.Name, new { @class = "form-control" })
+            @Html.DisplayTextFor(m => m[i].Genre.Name)
         </div>
     }
 }
