@@ -55,5 +55,27 @@ namespace GitLab.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [Authorize]
+        [HttpGet]
+        public ActionResult MyGigs()
+        {
+            var artistId = User.Identity.GetUserId();
+            var listOfGigs = _context.Gigs.Where(a => a.ArtistId == artistId).ToList();
+            
+            foreach (var gig in listOfGigs)
+            {
+                var id = gig.GenreId;
+                var genre = _context.Genres.Single(g => g.Id == id).Name;
+                gig.Genre.Name = genre;
+            }
+
+            return View(listOfGigs);
+        }
+
+        public ActionResult MyArtists()
+        {
+            return View();
+        }
     }
 }

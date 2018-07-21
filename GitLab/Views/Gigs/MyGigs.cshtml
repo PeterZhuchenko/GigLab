@@ -1,0 +1,28 @@
+﻿@using GitLab.Models.GitModels
+@model List<Gig>
+@{
+    ViewBag.Title = "MyGigs";
+}
+
+<h2>MyGigs</h2>
+
+@using (Html.BeginForm())
+{
+    for (int i = 0; i < Model.Count; i++)
+    {
+        <div class="form-group">
+            @Html.LabelFor(m => m[i].DateTime)
+            @Html.TextBoxFor(m => m[i].DateTime, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m[i].Venue)
+            @Html.TextBoxFor(m => m[i].Venue, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(m => m[i].Genre)
+            @Html.TextBoxFor(m => m[i].Genre.Name, new { @class = "form-control" })
+        </div>
+    }
+}
+
+
