@@ -221,10 +221,14 @@
     <Compile Include="Migrations\201807071341451_ArtIdAndMigrId.Designer.cs">
       <DependentUpon>201807071341451_ArtIdAndMigrId.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201808041306173_Name prop added to Application User.cs" />
+    <Compile Include="Migrations\201808041306173_Name prop added to Application User.Designer.cs">
+      <DependentUpon>201808041306173_Name prop added to Application User.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\GitModels\Genre.cs" />
-    <Compile Include="Models\GitModels\Gig.cs" />
+    <Compile Include="Models\GigModels\Genre.cs" />
+    <Compile Include="Models\GigModels\Gig.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -334,6 +338,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201807071341451_ArtIdAndMigrId.resx">
       <DependentUpon>201807071341451_ArtIdAndMigrId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201808041306173_Name prop added to Application User.resx">
+      <DependentUpon>201808041306173_Name prop added to Application User.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

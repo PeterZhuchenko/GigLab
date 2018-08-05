@@ -1,4 +1,6 @@
-﻿using System;
+﻿using GitLab.Models;
+using System.Data.Entity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +10,20 @@ namespace GitLab.Controllers
 {
     public class HomeController : Controller
     {
+        ApplicationDbContext _context;
+
+        public HomeController()
+        {
+            _context = new ApplicationDbContext();
+        }
+
         public ActionResult Index()
         {
-            return View();
+            var upcomingGigs = _context.Gigs
+                .Include(g => g.Artist)
+                .Include(g => g.Genre)
+                .Where(g => g.DateTime > DateTime.Now);
+            return View(upcomingGigs);
         }
 
         public ActionResult About()
