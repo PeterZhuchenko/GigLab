@@ -77,3 +77,4 @@ C:\Users\Peter\source\repos\GitLab\GitLab\obj\Debug\GigLab.csproj.CoreCompileInp
 C:\Users\Peter\source\repos\GitLab\GitLab\obj\Debug\GitLab.dll
 C:\Users\Peter\source\repos\GitLab\GitLab\obj\Debug\GitLab.pdb
 C:\Users\Peter\source\repos\GitLab\GitLab\obj\Debug\GitLab.Migrations.NamepropaddedtoApplicationUser.resources
+C:\Users\Peter\source\repos\GitLab\GitLab\obj\Debug\GitLab.Migrations.AddAttendance.resources

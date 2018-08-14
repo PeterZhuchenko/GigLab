@@ -1,14 +1,24 @@
-﻿using System;
+﻿using GitLab.Models.GitModels;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+using System.Linq;
+using System.Web;
 
-/// <summary>
-/// Summary description for Class1
-/// </summary>
-public class Attendance
+namespace GitLab.Models.GigModels
 {
-	public Attendance()
-	{
-		//
-		// TODO: Add constructor logic here
-		//
-	}
+    public class Attendance
+    {
+        public ApplicationUser Attendee { get; set; }
+        public Gig Gig { get; set; }
+
+        [Key]
+        [Column(Order = 1)]
+        public int GigId { get; set; }
+
+        [Key]
+        [Column(Order = 2)]
+        public string AttendeeId { get; set; }
+    }
 }
