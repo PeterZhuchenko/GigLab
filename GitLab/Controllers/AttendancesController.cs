@@ -1,15 +1,13 @@
-﻿using GitLab.Models;
+﻿using GitLab.Dtos;
+using GitLab.Models;
 using GitLab.Models.GigModels;
 using Microsoft.AspNet.Identity;
-using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Web.Http;
 
 namespace GitLab.Controllers
 {
+    [Authorize]
     public class AttendancesController : ApiController
     {
         ApplicationDbContext _context;
@@ -20,17 +18,17 @@ namespace GitLab.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Attend([FromBody]int gigId)
+        public IHttpActionResult Attend(AttendanceDto dto)
         {
             var userId = User.Identity.GetUserId();
-            var attendanceExists = _context.Attendances.Any(a => a.AttendeeId == userId && a.GigId == gigId);
+            var attendanceExists = _context.Attendances.Any(a => a.AttendeeId == userId && a.GigId == dto.GigId);
 
             if (attendanceExists)
                 return BadRequest("The attendance already exists!");
 
             var attendance = new Attendance()
             {
-                GigId = gigId,
+                GigId = dto.GigId,
                 AttendeeId = userId
             };
 
