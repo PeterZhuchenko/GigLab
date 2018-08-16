@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -16,6 +18,16 @@ namespace GitLab.Models
         [StringLength(100)]
         public string Name { get; set; }
 
+        public ICollection<Following> Followers { get; set; }
+        public ICollection<Following> Followees { get; set; }
+
+        public ApplicationUser()
+        {
+            Followers = new Collection<Following>();
+            Followees = new Collection<Following>();
+        }
+
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -30,6 +42,7 @@ namespace GitLab.Models
         public DbSet<Gig> Gigs { get; set; }
         public DbSet<Genre> Genres { get; set; }
         public DbSet<Attendance> Attendances { get; set; }
+        public DbSet<Following> Followings { get; set; }
 
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
@@ -48,6 +61,19 @@ namespace GitLab.Models
                 .HasRequired(a => a.Gig)
                 .WithMany()
                 .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<ApplicationUser>()
+                .HasMany(f => f.Followers)
+                .WithRequired(u => u.Followee)
+                .WillCascadeOnDelete(false);
+
+            modelBuilder
+                .Entity<ApplicationUser>()
+                .HasMany(f => f.Followees)
+                .WithRequired(u => u.Follower)
+                .WillCascadeOnDelete(false);
+
             base.OnModelCreating(modelBuilder);
         }
     }
