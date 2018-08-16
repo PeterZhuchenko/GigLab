@@ -1,0 +1,4 @@
+*.csproj.CoreCompileInputs.cache
+/GigLab.csproj.GenerateResource.Cache
+/GitLab.dll
+/GitLab.pdb
