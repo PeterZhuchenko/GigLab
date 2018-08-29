@@ -11,18 +11,33 @@ using System.Web.Http;
 
 namespace GitLab.Controllers
 {
-    public class FollowmentController : ApiController
+    [Authorize]
+    public class FollowingsController : ApiController
     {
         ApplicationDbContext _context;
 
-        public FollowmentController()
+        public FollowingsController()
         {
             _context = new ApplicationDbContext();
         }
 
-        public IHttpActionResult Follow(FollowmentDto dto)
+        [HttpPost]
+        public IHttpActionResult Follow(FollowingDto dto)
         {
-           
+            var userId = User.Identity.GetUserId();
+
+            if (_context.Followings.Any(f => f.FolloweeId == userId && f.FolloweeId == dto.FolloweeId))
+                return BadRequest("Following already exists.");
+
+            var following = new Following()
+            {
+                FollowerId = userId,
+                FolloweeId = dto.FolloweeId
+            };
+
+            _context.Followings.Add(following);
+            _context.SaveChanges();
+
             return Ok();
         }
 

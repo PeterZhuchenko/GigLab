@@ -64,14 +64,14 @@ namespace GitLab.Models
 
             modelBuilder
                 .Entity<ApplicationUser>()
-                .HasMany(f => f.Followers)
-                .WithRequired(u => u.Followee)
+                .HasMany(u => u.Followers)
+                .WithRequired(f => f.Followee)
                 .WillCascadeOnDelete(false);
 
             modelBuilder
                 .Entity<ApplicationUser>()
-                .HasMany(f => f.Followees)
-                .WithRequired(u => u.Follower)
+                .HasMany(u => u.Followees)
+                .WithRequired(f => f.Follower)
                 .WillCascadeOnDelete(false);
 
             base.OnModelCreating(modelBuilder);
