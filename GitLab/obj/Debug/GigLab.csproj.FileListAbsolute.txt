@@ -165,3 +165,5 @@ C:\git\GigLab\GitLab\obj\Debug\GigLab.csproj.CoreCompileInputs.cache
 C:\git\GigLab\GitLab\obj\Debug\GigLab.csproj.CopyComplete
 C:\git\GigLab\GitLab\obj\Debug\GitLab.dll
 C:\git\GigLab\GitLab\obj\Debug\GitLab.pdb
+C:\git\GigLab\GitLab\obj\Debug\GitLab.Migrations.AddFollowers.resources
+C:\git\GigLab\GitLab\obj\Debug\GitLab.Migrations.AddFollowers2.resources

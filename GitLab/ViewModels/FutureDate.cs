@@ -14,8 +14,8 @@ namespace GitLab.ViewModels
         {
             DateTime dateTime;
             var isValid = DateTime.TryParseExact(Convert.ToString(value),
-                "d MMM yyyy",
-                CultureInfo.CurrentCulture,
+                "dd/MM/yyyy",
+                CultureInfo.InvariantCulture,
                 DateTimeStyles.None,
                 out dateTime);
 
